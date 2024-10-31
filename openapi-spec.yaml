@@ -1,0 +1,46 @@
+openapi: 3.0.0
+paths:
+  /auth:
+    post:
+      operationId: AuthorizationController_authorize
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthorizationPayload'
+      responses:
+        '201':
+          description: ''
+      tags:
+        - Authorization
+info:
+  title: telecrm
+  description: ''
+  version: '1.0'
+  contact: {}
+tags: []
+servers: []
+components:
+  schemas:
+    IncomingCallEventPayload:
+      type: object
+      properties:
+        toPhone:
+          type: number
+        fromPhone:
+          type: string
+      required:
+        - toPhone
+        - fromPhone
+    AuthorizationPayload:
+      type: object
+      properties:
+        masterKey:
+          type: string
+        clientId:
+          type: number
+      required:
+        - masterKey
+        - clientId
